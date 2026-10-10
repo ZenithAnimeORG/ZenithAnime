@@ -1,7 +1,11 @@
 # ZenithAnime
 
 <p align="center">
-  <b>Современный мультиплатформенный медиаплеер для комфортного просмотра аниме</b><br>
+  <a href="README.md"><b>English</b></a> • <a href="README.ru.md"><b>Русский</b></a>
+</p>
+
+<p align="center">
+  <b>Modern cross-platform anime media player engineered for seamless watching experience</b><br>
   <i>Android (Mobile / TV) • Desktop (Linux / Windows / macOS)</i>
 </p>
 
@@ -13,55 +17,55 @@
 </p>
 
 > [!WARNING]
-> Данный репозиторий предназначен для трекинга задач, обсуждения предложений (Feature Requests), отчётов об ошибках (Issues) и FAQ.
+> This repository is dedicated to issue tracking, feature requests, roadmap discussions, and FAQ.
 
 ---
 
-## ✨ Возможности приложения (Roadmap & Status)
+## ✨ Features & Roadmap
 
-### 🎬 Плеер и рендеринг видео (Media Engine)
-- [x] **100% MPV Engine**: Аппаратное воспроизведение видео на базе `libmpv` (Desktop) и `mpv-android` (Android)
-- [x] **GPU-шейдеры апскейла в реальном времени**: Поддержка ArtCNN (C4F32/C4F16), Anime4K (CNN/GAN), AMD FidelityFX CAS, RAVU Lite, KrigBilateral (4:2:0 $\to$ 4:4:4)
-- [x] **Постобработка и фильтры**: Deband (устранение градиентных полос), 3D CGI Anti-Aliasing, нормализация громкости звука
-- [x] **Умный пропуск таймкодов**: Автоматический пропуск опенингов и эндингов (интеграция AniSkip и AnimeSkip)
-- [x] **Прекэширование видеопотока**: Буферизация и интеллектуальное прекэширование следующей серии во время просмотра текущей
-- [ ] **Интерполяция видеоряда (MEMC)**: Плавное воспроизведение с высокой частотой кадров (60 / 120 FPS) со сглаживанием артефактов на динамических сценах
-- [ ] **Предварительный офлайн-апскейл**: Фоновая обработка и AI-апскейл заранее скачанных серий (ArtCNN / Anime4K / Vulkan compute) прямо в кэше — для кристального качества при просмотре без нагрузки на процессор, видеочип и батарею устройства
-
----
-
-### 🌐 Модульная экосистема источников (.zpk Plugins)
-- [x] **Чистое ядро без жестких привязок**: Полная независимость приложения от конкретных сайтов и сервисов — плеер оперирует универсальными медиа-ссылками
-- [x] **Встроенный магазин расширений (Provider Store)**: Установка, пакетное обновление и управление репозиториями модулей в один клик
-- [x] **Выбор каталога**: Поддержка любых каталогов метаданных (Shikimori, YummyAnime и др.) с удобным переключением активного
-- [x] **Онлайн-просмотр из разных источников**: Параллельный поиск озвучек и видеопотоков (Kodik, HDRezka, Alloha, Collaps, VideoCDN)
-- [x] **Торрент-стриминг на лету**: Воспроизведение через встроенный `jlibtorrent` (Nyaa, RuTracker, RuTor) с последовательной загрузкой без ожидания всего файла
-- [x] **Внешние субтитры**: Интеграция с источниками субтитров (OpenSubtitles)
-- [x] **Гибкие цепочки Fallback**: Настраиваемый Drag-and-Drop приоритет источников постеров и таймкодов
-- [x] **Безопасность и песочница**: Ed25519 криптографическая подпись каждого `.zpk` пакета, TOFU-доверие и строгая фильтрация сетевых хостов плагина
+### 🎬 Media Engine & Player
+- [x] **100% Hardware MPV Engine**: Direct video rendering powered by `libmpv` (Desktop) and `mpv-android` (Android)
+- [x] **Real-Time GPU Super-Resolution Shaders**: ArtCNN (C4F32/C4F16), Anime4K (CNN/GAN), AMD FidelityFX CAS, RAVU Lite, KrigBilateral (4:2:0 $\to$ 4:4:4)
+- [x] **Advanced Post-Processing**: Debanding (banding artifact removal), 3D CGI Anti-Aliasing, volume normalization
+- [x] **Smart Timecode Skip**: Automatic opening and ending skipping (AniSkip & AnimeSkip integration)
+- [x] **Stream Pre-Caching**: Intelligent next-episode background buffer pre-caching during playback
+- [ ] **Motion Frame Interpolation (MEMC)**: High frame-rate playback (60 / 120 FPS) with scene-cut artifact dampening
+- [ ] **Offline Video Pre-Upscaling**: Background AI super-resolution for cached/downloaded episodes (ArtCNN / Anime4K / Vulkan compute) ahead of time — high-fidelity playback with zero runtime CPU/GPU drain and battery conservation
 
 ---
 
-### 📥 Загрузки и автономный режим (Downloads & Cache)
-- [x] **Менеджер фоновых загрузок**: Скачивание серий и видеопотоков для просмотра без интернета
-- [x] **Персистентность торрентов**: Сохранение прогресса раздач и состояния fastresume между перезапусками приложения
-- [x] **Управление памятью**: Тонкая настройка кэша изображений, метаданных и удаление скачанных файлов по тайтлам/сезонам
-- [ ] **Офлайн-суперразрешение для скачанных серий**: Экспорт предварительно апскейльнутых файлов в память устройства
+### 🌐 Modular Provider Ecosystem (.zpk Plugins)
+- [x] **Pure Decoupled Core**: Application internals operate strictly on neutral media references with zero hardcoded scraping logic
+- [x] **Integrated Provider Store**: One-click installation, batch updates, and repository management
+- [x] **Configurable Catalog**: Support for arbitrary metadata catalogs (Shikimori, YummyAnime, etc.) with single active choice
+- [x] **Multi-Source Online Streaming**: Parallel voiceover and stream discovery (Kodik, HDRezka, Alloha, Collaps, VideoCDN)
+- [x] **On-the-Fly Torrent Streaming**: Sequential piece download and instant playback via embedded `jlibtorrent` (Nyaa, RuTracker, RuTor)
+- [x] **External Subtitles**: Subtitle provider integration (OpenSubtitles)
+- [x] **Configurable Fallback Chains**: Drag-and-drop priority reordering for poster and timecode fallback chains
+- [x] **Security & Sandboxing**: Ed25519 cryptographic package signing, TOFU trust verification, and Ktor host filter whitelisting
 
 ---
 
-### ☁️ Закладки, история и облако (Sync & Data)
-- [x] **Локальные закладки и история**: Быстрая локальная база данных (SQLDelight) с детальной историей прогресса каждой серии
-- [x] **Двусторонняя облачная синхронизация**: Автоматическая синхронизация через изолированный Google Drive `appDataFolder` (`zenith_backup.bundle.gz`)
-- [x] **Умный импорт закладок**: Интерактивный мастер импорта бэкапов из сторонних приложений (Anixart и др.) с пошаговыми инструкциями и ручным матчингом спорных названий
-- [x] **Синхронизация со сторонними трекерами**: Двусторонний обмен статусами просмотра
+### 📥 Downloads & Offline Cache
+- [x] **Background Download Manager**: Queued offline episode and video stream caching
+- [x] **Torrent Session Persistence**: Fastresume piece map and torrent state restoration across application restarts
+- [x] **Storage Management**: Granular memory, image, and metadata cache controls with per-anime/season cleanup
+- [ ] **Offline Super-Resolution Export**: Automatic local saving of pre-rendered upscaled videos
 
 ---
 
-### 🎨 Дизайн и платформы (UI & Platforms)
-- [x] **Material 3 Expressive**: Современные анимации на физических пружинах и кинематографичный движок размытия Haze 2.0
-- [x] **Динамическая тема**: Адаптивные палитры на основе постеров (`MaterialKolor`) и системных обоев Android 12+ (Monet)
-- [x] **Мультиплатформенность**: Единый код на Android и Desktop (Linux, Windows, macOS)
-- [x] **Десктопные шорткаты и командная строка**: Быстрая палитра команд (`Ctrl+K` / `Ctrl+P`), шпаргалка горячих клавиш (`Ctrl+/` / `F1`) и полноэкранный режим (`F11`)
-- [x] **Чистый старт (Clean Start)**: Мастер первичной настройки без предустановленного мусора
-- [ ] **Android TV & Leanback**: Выделенная оптимизация под ТВ-пульт (D-Pad), каналы рекомендаций Android TV Home и адаптированный плеер
+### ☁️ Bookmarks, History & Cloud Sync
+- [x] **Local Bookmarks & Watch History**: Fast local SQLDelight database with fine-grained per-episode progress tracking
+- [x] **Bidirectional Cloud Sync**: Seamless synchronization via Google Drive's isolated `appDataFolder` (`zenith_backup.bundle.gz`)
+- [x] **Smart Backup Import**: Interactive import wizard for third-party backups (Anixart, etc.) with step-by-step export guides and fuzzy title matching
+- [x] **Tracker Synchronization**: External tracker watch status synchronization
+
+---
+
+### 🎨 Design & Platforms (UI & UX)
+- [x] **Material 3 Expressive**: Motion spring physics and cinematic Haze 2.0 backdrop blur engine
+- [x] **Dynamic Theming**: Content-derived palettes (`MaterialKolor`) and Android 12+ Monet wallpaper colors
+- [x] **True Multiplatform**: Unified codebase across Android and Desktop (Linux, Windows, macOS)
+- [x] **Desktop Power Controls**: Quick command palette (`Ctrl+K` / `Ctrl+P`), shortcuts cheatsheet (`Ctrl+/` / `F1`), and fullscreen toggle (`F11`)
+- [x] **Clean Start Onboarding**: Setup wizard with zero bundled bloatware
+- [ ] **Android TV & Leanback**: Dedicated D-Pad focus rings, Android TV Home recommendation channels, and TV-optimized player HUD
